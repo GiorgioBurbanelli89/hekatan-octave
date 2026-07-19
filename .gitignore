@@ -1,0 +1,40 @@
+bin/
+obj/
+*.user
+*.suo
+.vs/
+node_modules/
+# Build output of `dotnet publish` (the same content is already packaged in
+# Calcpad-Symbolic-portable-win-x64.exe / the installers). Adding every
+# individual DLL/PDB would bloat the repo with thousands of redundant files.
+/publish/
+# Large binaries (installers, portable zips) are tracked via Git LFS —
+# see .gitattributes. NOT excluded anymore.
+# Temporary debug project used while diagnosing AngouriMath stack overflow.
+TestAngouri/
+explicaciones/*.html
+Installer/*.exe
+
+# Reportes HTML generados por CalcpadLabCli al ejecutar los Examples (cada uno ~5 MB por el bundle UI)
+Examples-Lab/**/*.html
+Examples-Lab/**/*.png
+Examples-Lab/**/*.pdf
+Symbolic.Cli/Examples/Matlab/*.html
+
+# Binarios nativos de cálculo (Intel MKL ~388 MB + OpenBLAS ~51 MB).
+# Van SOLO en el instalador (publish self-contained), NO en el repo de código.
+Symbolic.Core/Native/mkl/
+Symbolic.Core/Native/libopenblas.dll
+
+# Calcpad Octave: outputs HTML generados de los ejemplos (se regeneran, no son fuente)
+Examples/**/*.html
+Examples/**/*.png
+Examples/**/*.pdf
+Examples-Lab/**/*.html
+Website/**/*.html
+/*.html
+# instaladores adicionales
+Setup/*.exe
+*.msi
+# librería viz embebida (~5MB c/u, viene de calcpad-viz/dist)
+**/calcpad-viz.umd.*

@@ -1,5 +1,5 @@
 % Resolver_Ecuaciones.m — Resolver ecuaciones simbolicas con solve()
-% NOTA: Calcpad-Lab MVP usa solve(expr, x) asumiendo = 0.
+% NOTA: Hekatan Octave MVP usa solve(expr, x) asumiendo = 0.
 clear; clc;
 syms x a b c
 

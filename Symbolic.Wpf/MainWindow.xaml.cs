@@ -1,4 +1,4 @@
-using Calcpad.Core;
+﻿using Calcpad.Core;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Win32;
 using System;
@@ -49,7 +49,7 @@ namespace Calcpad.Wpf
                 Name = AppDomain.CurrentDomain.FriendlyName + ".exe";
                 FullName = System.IO.Path.Combine(Path, Name);
                 Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-                Title = " Calcpad Octave " + Version[0..(Version.LastIndexOf('.'))];
+                Title = " Hekatan Octave " + Version[0..(Version.LastIndexOf('.'))];
                 DocPath = Path + "doc";
                 if (!Directory.Exists(DocPath))
                     DocPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\CalcpadOctave";
@@ -338,7 +338,7 @@ namespace Calcpad.Wpf
             var message = MainWindowResources.TryRestoreState_Recovered_SavePrompt;
             var result = MessageBox.Show(
                 message,
-                "Calcpad",
+                "Hekatan Octave",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question);
             if (result != MessageBoxResult.Yes) return;
@@ -361,7 +361,7 @@ namespace Calcpad.Wpf
         {
             if (string.IsNullOrWhiteSpace(path) || !Directory.Exists(path))
             {
-                DocumentPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Calcpad-Lab";
+                DocumentPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hekatan-Octave";
                 if (!Directory.Exists(DocumentPath))
                     Directory.CreateDirectory(DocumentPath);
 
@@ -482,7 +482,7 @@ namespace Calcpad.Wpf
                     Dispatcher.InvokeAsync(() =>
                     MessageBox.Show(
                         MainWindowResources.Inline_Html_elements_must_not_cross_text_lines,
-                        "Calcpad", MessageBoxButton.OK, MessageBoxImage.Stop));
+                        "Hekatan Octave", MessageBoxButton.OK, MessageBoxImage.Stop));
             }
             else if (tag.Contains('§'))
                 InsertLines(tag, "§", false);
@@ -1300,7 +1300,7 @@ namespace Calcpad.Wpf
         {
             var result = MessageBoxResult.No;
             if (!IsSaved)
-                result = MessageBox.Show(MainWindowResources.SavePrompt, "Calcpad", MessageBoxButton.YesNoCancel);
+                result = MessageBox.Show(MainWindowResources.SavePrompt, "Hekatan Octave", MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Yes)
             {
                 if (string.IsNullOrWhiteSpace(CurrentFileName))
@@ -2346,7 +2346,7 @@ namespace Calcpad.Wpf
                         if (logString.Length > 0)
                         {
                             string message = MainWindowResources.Error_Exporting_Docx_File;
-                            if (MessageBox.Show(message, "Calcpad", MessageBoxButton.YesNo, MessageBoxImage.Error) == MessageBoxResult.Yes)
+                            if (MessageBox.Show(message, "Hekatan Octave", MessageBoxButton.YesNo, MessageBoxImage.Error) == MessageBoxResult.Yes)
                             {
                                 var logFile = fileName + "_validation.log";
                                 WriteFile(logFile, logString);
@@ -2494,7 +2494,7 @@ namespace Calcpad.Wpf
             if (_mustPromptUnlock && IsWebForm)
             {
                 string message = MainWindowResources.Are_you_sure_you_want_to_unlock_the_source_code_for_editing;
-                if (MessageBox.Show(message, "Calcpad", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                if (MessageBox.Show(message, "Hekatan Octave", MessageBoxButton.YesNo) == MessageBoxResult.No)
                     return;
 
                 _mustPromptUnlock = false;
@@ -3166,7 +3166,7 @@ namespace Calcpad.Wpf
             {
                 Random rand = new();
                 name = $"image_{rand.NextInt64()}";
-                InputBox.Show("Calcpad", "Image name:", ref name);
+                InputBox.Show("Hekatan Octave", "Image name:", ref name);
                 name += ".png";
             }
             string path;
@@ -4510,7 +4510,7 @@ namespace Calcpad.Wpf
 
 
         private static void ShowErrorMessage(string message) =>
-            MessageBox.Show(message, "Calcpad", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(message, "Hekatan Octave", MessageBoxButton.OK, MessageBoxImage.Error);
 
         private async void Window_ContentRendered(object sender, EventArgs e)
         {
